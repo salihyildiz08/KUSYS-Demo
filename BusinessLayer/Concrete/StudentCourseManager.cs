@@ -9,10 +9,31 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class StudentCourseManager : GenericManager<StudentCourse>, IStudentCourseService
+    public class StudentCourseManager : IStudentCourseService
     {
-        public StudentCourseManager(GenericRepository<StudentCourse> repository) : base(repository)
+        public void TAdd(StudentCourse entity)
         {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(StudentCourse entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<StudentCourse> TGetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public StudentCourse TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(StudentCourse entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

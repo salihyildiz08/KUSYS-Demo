@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model Student
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutKUSYS.cshtml";
+}
+
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-8">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Update Students</h5>
+
+                    <!-- General Form Elements -->
+                    <form action="Edit" method="post">
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="FirstName" id="firstname" value="@Model.FirstName">
+                                <input type="hidden" class="form-control" name="StudentId" id="StudentId" value="@Model.StudentId">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="LastName" id="LastName" value="@Model.LastName">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">BirthDate</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" name="BirthDate" id="BirthDate" value="@Model.BirthDate">
+                            </div>
+                        </div>
+         
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Update</label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </form><!-- End General Form Elements -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

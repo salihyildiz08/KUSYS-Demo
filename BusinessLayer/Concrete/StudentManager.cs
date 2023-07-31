@@ -21,12 +21,12 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Student entity)
         {
-            throw new NotImplementedException();
+           _studentDal.Add(entity);
         }
 
         public void TDelete(Student entity)
         {
-            throw new NotImplementedException();
+            _studentDal.Delete(entity);
         }
 
         public List<Student> TGetAll()
@@ -36,12 +36,12 @@ namespace BusinessLayer.Concrete
 
         public Student TGetById(int id)
         {
-            throw new NotImplementedException();
+           return _studentDal.GetById(id);
         }
 
         public void TUpdate(Student entity)
         {
-            throw new NotImplementedException();
+            _studentDal.Update(entity);
         }
     }
 }

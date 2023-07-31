@@ -21,6 +21,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IStudentDal, EfStudentDal>();
 builder.Services.AddScoped<IStudentService, StudentManager>();
 
+
+builder.Services.AddScoped<ICourseService, CourseManager>();
+
 var app = builder.Build();
 
 
