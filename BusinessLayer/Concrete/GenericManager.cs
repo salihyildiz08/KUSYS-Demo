@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Absract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace BusinessLayer.Concrete
 {
     public class GenericManager<T> : IGenericService<T> where T : class
     {
-        private readonly GenericRepository<T> _repository;
+        private readonly IRepositoryDal<T> _repository;
 
-        public GenericManager(GenericRepository<T> repository)
+        public GenericManager(IRepositoryDal<T> repository)
         {
             _repository = repository;
         }
