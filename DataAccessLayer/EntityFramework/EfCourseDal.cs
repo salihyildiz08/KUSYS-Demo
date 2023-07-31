@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Concrete;
+﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfCourseDal : GenericRepository<Course>
+    public class EfCourseDal : GenericRepository<Course>,ICourseDal
     {
         public EfCourseDal(ApplicationDbContext context) : base(context)
         {

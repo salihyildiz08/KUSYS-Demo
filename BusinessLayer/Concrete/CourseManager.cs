@@ -21,27 +21,27 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Course entity)
         {
-            throw new NotImplementedException();
+            _courseDal.Add(entity);
         }
 
         public void TDelete(Course entity)
         {
-            throw new NotImplementedException();
+            _courseDal.Delete(entity);
         }
 
         public List<Course> TGetAll()
         {
-            throw new NotImplementedException();
+           return _courseDal.GetAll();
         }
 
         public Course TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _courseDal.GetById(id);
         }
 
         public void TUpdate(Course entity)
         {
-            throw new NotImplementedException();
+            _courseDal.Update(entity);
         }
     }
 }

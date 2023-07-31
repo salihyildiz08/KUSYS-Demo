@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model Course
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutKUSYS.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-8">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> @Model.CourseName Update</h5>
+
+                    <!-- General Form Elements -->
+                    <form action="Edit" method="post">
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Course Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="CourseName" id="CourseName" value="@Model.CourseName">
+                                <input type="hidden" class="form-control" name="CourseId" id="CourseId" value="@Model.CourseId">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Course Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="CourseCode" id="CourseCode" value="@Model.CourseCode">
+                            </div>
+                        </div>
+                       
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Update</label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </form><!-- End General Form Elements -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
