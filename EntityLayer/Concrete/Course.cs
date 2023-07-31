@@ -11,6 +11,7 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int CourseId { get; set; }
+        public string CourseCode { get; set; }
         public string CourseName { get; set; }
 
         public List<StudentCourse> StudentCourses { get; set; }

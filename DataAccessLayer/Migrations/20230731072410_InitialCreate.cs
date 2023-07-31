@@ -15,6 +15,7 @@ namespace DataAccessLayer.Migrations
                 {
                     CourseId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CourseCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -61,6 +62,45 @@ namespace DataAccessLayer.Migrations
                         principalTable: "Students",
                         principalColumn: "StudentId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "CourseId", "CourseCode", "CourseName" },
+                values: new object[,]
+                {
+                    { 1, "CSI101", "Introduction to Computer Science" },
+                    { 2, "CSI102", "Algorithms" },
+                    { 3, "MAT101", "Calculus" },
+                    { 4, "PHY101", "Physics" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Students",
+                columns: new[] { "StudentId", "BirthDate", "FirstName", "LastName" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1996, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Salih", "Yıldız" },
+                    { 2, new DateTime(1985, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Adil", "Yılmaz" },
+                    { 3, new DateTime(1974, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "Yelda", "Geçer" },
+                    { 4, new DateTime(2008, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sümmeye", "Kara" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "StudentCourses",
+                columns: new[] { "StudentCourseId", "CourseId", "StudentId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 },
+                    { 3, 3, 1 },
+                    { 4, 4, 1 },
+                    { 5, 1, 2 },
+                    { 6, 2, 2 },
+                    { 7, 3, 2 },
+                    { 8, 1, 3 },
+                    { 9, 2, 3 },
+                    { 10, 1, 4 }
                 });
 
             migrationBuilder.CreateIndex(
