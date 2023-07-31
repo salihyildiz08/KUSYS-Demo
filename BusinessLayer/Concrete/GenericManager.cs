@@ -17,29 +17,29 @@ namespace BusinessLayer.Concrete
             _repository = repository;
         }
 
-        public void Add(T entity)
+        public void TAdd(T entity)
         {
-            _repository.Add(entity);
+            throw new NotImplementedException();
         }
 
-        public void Delete(T entity)
+        public void TDelete(T entity)
         {
-            _repository.Delete(entity);
+            throw new NotImplementedException();
         }
 
-        public List<T> GetAll()
+        public List<T> TGetAll()
         {
             return _repository.GetAll();
         }
 
-        public T GetById(int id)
+        public T TGetById(int id)
         {
-           return GetById(id);
+            throw new NotImplementedException();
         }
 
-        public void Update(T entity)
+        public void TUpdate(T entity)
         {
-            _repository.Update(entity);
+            throw new NotImplementedException();
         }
     }
 }

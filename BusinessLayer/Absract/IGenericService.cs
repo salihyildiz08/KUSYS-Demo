@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Absract
 {
-    public interface IGenericService<T> where T : class
+    public interface IGenericService<T>
     {
-        List<T> GetAll();
-        T GetById(int id);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        List<T> TGetAll();
+        T TGetById(int id);
+        void TAdd(T entity);
+        void TUpdate(T entity);
+        void TDelete(T entity);
     }
 }

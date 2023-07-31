@@ -13,5 +13,6 @@ namespace DataAccessLayer.EntityFramework
         public EfStudentDal(ApplicationDbContext context) : base(context)
         {
         }
+       
     }
 }

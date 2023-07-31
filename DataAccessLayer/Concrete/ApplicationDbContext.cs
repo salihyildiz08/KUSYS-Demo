@@ -12,7 +12,10 @@ namespace DataAccessLayer.Concrete
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+       
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
@@ -26,7 +29,8 @@ namespace DataAccessLayer.Concrete
             new Student() { StudentId = 1, FirstName = "Salih", LastName = "Yıldız", BirthDate = new DateTime(1996, 09, 08) },
             new Student() { StudentId = 2, FirstName = "Adil", LastName = "Yılmaz", BirthDate = new DateTime(1985, 01, 18) },
             new Student() { StudentId = 3, FirstName = "Yelda", LastName = "Geçer", BirthDate = new DateTime(1974, 09, 30) },
-            new Student() { StudentId = 4, FirstName = "Sümmeye", LastName = "Kara", BirthDate = new DateTime(2008, 07, 24) }
+            new Student() { StudentId = 4, FirstName = "Sümmeye", LastName = "Kara", BirthDate = new DateTime(2008, 07, 24) },
+            new Student() { StudentId = 5, FirstName = "Mustafa", LastName = "Aşana", BirthDate = new DateTime(2008, 07, 24) }
                );
 
             //Course Seed
@@ -55,3 +59,4 @@ namespace DataAccessLayer.Concrete
 
     }
 }
+

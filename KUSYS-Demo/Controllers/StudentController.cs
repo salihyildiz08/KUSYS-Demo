@@ -1,5 +1,11 @@
 ﻿using BusinessLayer.Absract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace KUSYS_Demo.Controllers
 {
@@ -14,7 +20,7 @@ namespace KUSYS_Demo.Controllers
 
         public IActionResult Index()
         {
-            var students = _studentService.GetAll();
+            var students = _studentService.TGetAll();
             return View(students);
         }
     }

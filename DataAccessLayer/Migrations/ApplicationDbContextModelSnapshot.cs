@@ -120,6 +120,13 @@ namespace DataAccessLayer.Migrations
                             BirthDate = new DateTime(2008, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Sümmeye",
                             LastName = "Kara"
+                        },
+                        new
+                        {
+                            StudentId = 5,
+                            BirthDate = new DateTime(2008, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Mustafa",
+                            LastName = "Aşana"
                         });
                 });
 

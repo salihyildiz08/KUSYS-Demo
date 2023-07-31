@@ -31,7 +31,7 @@ namespace DataAccessLayer.EntityFramework
 
         public List<T> GetAll()
         {
-           return _context.Set<T>().ToList();
+           return _context.Set<T>().ToList(); 
         }
 
         public T GetById(int id)
