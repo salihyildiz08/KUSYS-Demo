@@ -3,7 +3,7 @@ KUSYS Projesi, .NET Core 6 ve EF Core 6 kullanılarak CodeFirst yaklaşımıyla 
 
 
 # Teknojiler
-.NET Core 6 ve EF Core 6 - ASP.NET Core Web - Code First - N Katmalı Mimari - Git - Linq - UnitOfWork
+.NET Core 6 ve EF Core 6 - ASP.NET Core Web - Code First - N Katmalı Mimari - Unit Test - Git - Linq - UnitOfWork
 
 Bootstrap, Css, Js, Ajax, Html5, Fluent Validation
 
