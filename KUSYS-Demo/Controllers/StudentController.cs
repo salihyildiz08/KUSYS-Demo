@@ -1,6 +1,11 @@
 ﻿using BusinessLayer.Absract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace KUSYS_Demo.Controllers
 {
@@ -22,8 +27,22 @@ namespace KUSYS_Demo.Controllers
         [HttpPost]
         public IActionResult Create(Student s)
         {
-            _studentService.TAdd(s);
-            return RedirectToAction("Index", "Student");
+            StudentValidator sv=new StudentValidator();
+            ValidationResult result = sv.Validate(s);
+            if (!result.IsValid)
+            {
+                _studentService.TAdd(s);
+                return RedirectToAction("Index", "Student");
+            }else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return RedirectToAction("Index", "Student");  
+
         }
 
         [HttpGet]

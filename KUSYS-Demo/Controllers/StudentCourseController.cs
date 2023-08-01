@@ -68,9 +68,14 @@ namespace KUSYS_Demo.Controllers
         {
             var course = _service.GetAllWithStudentCourse().Where(x=>x.StudentId== StudentId).ToList();
             ViewBag.StudentID = StudentId;
-            string firstName= course.FirstOrDefault().Student.FirstName;
-            string lastName= course.FirstOrDefault().Student.LastName;
-            ViewBag.Name = firstName+" "+lastName;
+            if (course!=null)
+            {
+                string firstName = course.FirstOrDefault().Student.FirstName;
+                string lastName = course.FirstOrDefault().Student.LastName;
+                ViewBag.Name = firstName + " " + lastName;
+            }
+           
+           
             return View(course);
         }
 
