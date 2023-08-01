@@ -11,9 +11,11 @@ Varolan bir öğrenciyi güncellemek veya silmek için "Öğrenci Detayları" sa
 # 2- Ders Yönetimi:
 
 "Ders Ekle" sayfasından yeni dersler ekleyin.
+Varolan bir dersi güncellemek veya silmek için "ders Detayları" sayfasını kullanın.
 
 # 3- Öğrenci ve Ders Eşleştirmesi:
 
+Bir öğrenci bir dersi en fazla 1 kere alabilir. 2. bir kayıt gerçekleştirelemez.
 Bir öğrenciye ders eklemek için "Öğrenci Detayları" sayfasını kullanın.
 Her öğrenci bir dersi sadece bir kez seçebilir.
 Eşleştirmeleri Listeleme:
