@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Absract;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KUSYS_Demo.Controllers
@@ -12,10 +13,44 @@ namespace KUSYS_Demo.Controllers
             _service = service;
         }
 
-        public IActionResult Index(int studentID)
+        public IActionResult Index()
         {
-            
-            return View();
+            var studentCourses = _service.GetAllWithStudentCourse();
+            return View(studentCourses);
+        }
+
+
+        [HttpPost]
+        public IActionResult Create(StudentCourse c)
+        {
+            _service.TAdd(c);
+            return RedirectToAction("Index", "StudentCourse");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var course = _service.TGetById(id);
+            return View(course);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(StudentCourse c)
+        {
+            _service.TUpdate(c);
+            return RedirectToAction("Index", "StudentCourse");
+        }
+
+
+        public IActionResult Delete(int id)
+        {
+            var studentCourse = _service.TGetById(id);
+            if (studentCourse != null)
+            {
+                _service.TDelete(studentCourse);
+            }
+
+            return RedirectToAction("Index", "StudentCourse");
         }
 
 

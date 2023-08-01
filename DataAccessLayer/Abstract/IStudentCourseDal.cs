@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IStudentCourseDal:IRepositoryDal<StudentCourse>
     {
+        List<StudentCourse> GetAllWithStudentCourse();
     }
 }

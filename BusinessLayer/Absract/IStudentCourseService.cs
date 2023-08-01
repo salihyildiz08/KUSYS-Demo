@@ -9,5 +9,6 @@ namespace BusinessLayer.Absract
 {
     public interface IStudentCourseService:IGenericService<StudentCourse>
     {
+        List<StudentCourse> GetAllWithStudentCourse();
     }
 }

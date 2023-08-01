@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Absract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -10,38 +11,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class StudentManager : IStudentService
+    public class StudentManager : GenericService<Student>, IStudentService
     {
-        private readonly IStudentDal _studentDal;
-
-        public StudentManager(IStudentDal studentDal)
+        public StudentManager(IRepositoryDal<Student> dal) : base(dal)
         {
-            _studentDal = studentDal;
-        }
-
-        public void TAdd(Student entity)
-        {
-           _studentDal.Add(entity);
-        }
-
-        public void TDelete(Student entity)
-        {
-            _studentDal.Delete(entity);
-        }
-
-        public List<Student> TGetAll()
-        {
-            return _studentDal.GetAll();
-        }
-
-        public Student TGetById(int id)
-        {
-           return _studentDal.GetById(id);
-        }
-
-        public void TUpdate(Student entity)
-        {
-            _studentDal.Update(entity);
         }
     }
 }
