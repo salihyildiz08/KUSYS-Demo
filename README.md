@@ -1,6 +1,7 @@
 # KUSYS Projesi
 KUSYS Projesi, .NET Core 6 ve EF Core 6 kullanılarak CodeFirst yaklaşımıyla geliştirilen bir ASP.NET Core Web Uygulamasıdır. Bu uygulama, öğrenci ve derslerin yönetimini sağlar ve kullanıcılara öğrenci ekleme, güncelleme, silme, öğrenci ve ders eşleştirmesi yapma ve eşleştirmeleri listeleme gibi işlemleri gerçekleştirme imkanı sunar.
 
+
 # Teknojiler
 .NET Core 6 ve EF Core 6 - ASP.NET Core Web - Code First - N Katmalı Mimari - Git - Linq
 
