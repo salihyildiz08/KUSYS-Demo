@@ -24,9 +24,11 @@ builder.Services.AddScoped<IRepositoryDal<Student>, EfStudentDal>();
 
 builder.Services.AddScoped<ICourseDal, EfCourseDal>();
 builder.Services.AddScoped<ICourseService, CourseManager>();
+builder.Services.AddScoped<IRepositoryDal<Course>, EfCourseDal>();
 
 builder.Services.AddScoped<IStudentCourseDal, EfStudentCourseDal>();
 builder.Services.AddScoped<IStudentCourseService, StudentCourseManager>();
+builder.Services.AddScoped<IRepositoryDal<StudentCourse>, EfStudentCourseDal>();
 
 var app = builder.Build();
 

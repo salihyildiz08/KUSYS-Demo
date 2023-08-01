@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Student>
+
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Students List</label>
+    <div class="col-sm-10">
+        <select class="form-select" aria-label="Default select example" id="StudentId" name="StudentId">
+            @foreach (var item in Model)
+            {
+              <option value="@item.StudentId">@item.FirstName @item.LastName</option>
+            }
+        </select>
+    </div>
+</div>

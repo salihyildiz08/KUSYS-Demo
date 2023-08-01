@@ -1,4 +1,5 @@
-﻿using KUSYS_Demo.Models;
+﻿using BusinessLayer.Absract;
+using KUSYS_Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +7,24 @@ namespace KUSYS_Demo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IStudentService _studentService;
+        private readonly ICourseService _courseService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IStudentService studentService, ICourseService courseService)
         {
-            _logger = logger;
+            _studentService = studentService;
+            _courseService = courseService;
         }
 
         public IActionResult Index()
         {
+            var students = _studentService.TGetAll().Count();
+            ViewBag.students=students;
+            var courses = _courseService.TGetAll().Count();
+            ViewBag.courses = courses;
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+      
     }
 }

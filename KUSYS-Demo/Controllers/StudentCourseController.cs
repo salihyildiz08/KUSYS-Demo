@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Absract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace KUSYS_Demo.Controllers
 {
@@ -19,12 +20,39 @@ namespace KUSYS_Demo.Controllers
             return View(studentCourses);
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ViewBag.courses = "1";
+            return View();
+        }
+
 
         [HttpPost]
-        public IActionResult Create(StudentCourse c)
+        public IActionResult Create(int[] CourseId, int StudentId)
         {
-            _service.TAdd(c);
-            return RedirectToAction("Index", "StudentCourse");
+            List<string> courses = new List<string>(); // Var olan kursları geri döndünrmek için 
+            foreach (int courseId in CourseId)
+            {
+
+                var stCr = _service.GetAllWithStudentCourse().FirstOrDefault(x => x.StudentId == StudentId && x.CourseId == courseId);
+                if (stCr == null)
+                {
+                    StudentCourse s = new StudentCourse();
+                    s.StudentId = StudentId;
+                    s.CourseId = courseId;
+                    _service.TAdd(s);
+                }
+                else
+                {
+
+                    courses.Add(stCr.Course.CourseName);// Var olan kursları ekliyoruz. 
+                }
+
+            }
+
+            ViewBag.courses = courses;
+            return View();
         }
 
         [HttpGet]
@@ -34,23 +62,48 @@ namespace KUSYS_Demo.Controllers
             return View(course);
         }
 
-        [HttpPost]
-        public IActionResult Edit(StudentCourse c)
+
+        [HttpGet]
+        public IActionResult EditStudentCourses(int StudentId)
         {
-            _service.TUpdate(c);
-            return RedirectToAction("Index", "StudentCourse");
+            var course = _service.GetAllWithStudentCourse().Where(x=>x.StudentId== StudentId).ToList();
+            ViewBag.StudentID = StudentId;
+            string firstName= course.FirstOrDefault().Student.FirstName;
+            string lastName= course.FirstOrDefault().Student.LastName;
+            ViewBag.Name = firstName+" "+lastName;
+            return View(course);
         }
 
 
-        public IActionResult Delete(int id)
+
+        [HttpPost]
+        public IActionResult Edit(int StudentId, int[] CourseId)
         {
-            var studentCourse = _service.TGetById(id);
-            if (studentCourse != null)
+            foreach (int courseId in CourseId)
             {
-                _service.TDelete(studentCourse);
+                    StudentCourse s = new StudentCourse();
+                    s.StudentId = StudentId;
+                    s.CourseId = courseId;
+                    _service.TAdd(s);
+            }
+            return Redirect("/StudentCourse/EditStudentCourses?StudentId="+StudentId);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Delete(int StudentId,int[] CourseId)
+        {
+            foreach (int id in CourseId)
+            {
+                var studentCourse = _service.TGetAll().FirstOrDefault(x=>x.StudentId==StudentId && x.CourseId==id);
+                if (studentCourse != null)
+                {
+                    _service.TDelete(studentCourse);
+                }
             }
 
-            return RedirectToAction("Index", "StudentCourse");
+            return Redirect("/StudentCourse/EditStudentCourses?StudentId=" + StudentId);
         }
 
 

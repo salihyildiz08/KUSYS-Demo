@@ -70,6 +70,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">BirthDate</th>
+                                <th scope="col">Courses</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
 
@@ -82,7 +83,12 @@
                                     <td>@item.StudentId</td>
                                     <td>@item.FirstName</td>
                                     <td>@item.LastName</td>
-                                    <td>@item.BirthDate</td>
+                                    <td>@item.BirthDate.ToShortDateString()</td>
+                                    <td>
+                                        <a href="/studentcourse/EditStudentCourses?StudentId=@item.StudentId">
+                                            <i class="bi bi-book-half"></i>
+                                        </a>
+                                    </td>
                                     <td>
                                         <a href="/student/edit?id=@item.StudentId">
                                             <i class="bi bi-pencil-square"></i>

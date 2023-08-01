@@ -10,38 +10,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CourseManager : ICourseService
+    public class CourseManager : GenericService<Course>, ICourseService
     {
-        private readonly ICourseDal _courseDal;
-
-        public CourseManager(ICourseDal courseDal)
+        public CourseManager(IRepositoryDal<Course> dal) : base(dal)
         {
-            _courseDal = courseDal;
-        }
-
-        public void TAdd(Course entity)
-        {
-            _courseDal.Add(entity);
-        }
-
-        public void TDelete(Course entity)
-        {
-            _courseDal.Delete(entity);
-        }
-
-        public List<Course> TGetAll()
-        {
-           return _courseDal.GetAll();
-        }
-
-        public Course TGetById(int id)
-        {
-            return _courseDal.GetById(id);
-        }
-
-        public void TUpdate(Course entity)
-        {
-            _courseDal.Update(entity);
         }
     }
 }
